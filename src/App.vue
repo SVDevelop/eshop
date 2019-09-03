@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div>
+		<div class="top-panel">
+			<div class="top-panel__container">
+				<div class="top-panel__title">интернет магазин недвижимости</div>
+				<div class="top-panel__phone"><a href="tel:+8800557755">8 (800) 55-77-55</a></div>
+			</div>
+		</div>
+
+		<div class="logo-wrapper">
+			<div class="logo">
+				<div class="logo__title">КВАДРАТНЫЙ МЕТР</div>
+				<div class="logo__subtitle">купить квартиру в один клик</div>
+			</div>
+		</div>
+
+		<route-view />
+		
+		<div class="footer">
+			<div class="contaier">
+				<p>Учебный проект школы <a href="https://webcademy.ru/">WebCademy</a> с курса <a href="https://webcademy.ru/jscourse/">JavaScript разработка</a>. Проект выполнил <a href="#">Сергей Васильев</a>.</p>
+			</div>
+		</div>
+	</div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
