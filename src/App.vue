@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		<route-view />
+		<router-view/>
 		
 		<div class="footer">
 			<div class="contaier">

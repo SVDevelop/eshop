@@ -1,38 +1,19 @@
 <template>
 	<div>
-		<div class="top-panel">
-			<div class="top-panel__container">
-				<div class="top-panel__title">интернет магазин недвижимости</div>
-				<div class="top-panel__phone"><a href="tel:+8800557755">8 (800) 55-77-55</a></div>
-			</div>
-		</div>
-
-		<div class="logo-wrapper">
-			<div class="logo">
-				<div class="logo__title">КВАДРАТНЫЙ МЕТР</div>
-				<div class="logo__subtitle">купить квартиру в один клик</div>
-			</div>
-		</div>
-
 		<FilterBar 
 			v-bind:mode.sync="mode"
+            v-bind:filters.sync="filters"
+            v-on:resetFilters="resetFilters"
 		/>
-
-		<!-- cards-wrapper -->
 		<ShowCase 
 			v-if="mode === 'showcase'"
 			v-bind:items="items"
 		/>
-		<!-- // cards-wrapper -->
-
-		<!-- panels-wrapper -->
 		<ListCase
 			v-if="mode === 'list'"
 			v-bind:items="items" 
 		/>>
-		<!-- // panels-wrapper -->
-
-		<!-- pagination -->
+        <!-- pagination -->
 		<div class="pagination">
 			<a href="#" class="pagination__link">Предыдущая</a>
 			<a href="#" class="pagination__page">1</a>
@@ -43,8 +24,6 @@
 			<a href="#" class="pagination__link">Следующая</a>
 		</div>
 		<!-- // pagination -->
-		<route-view />
-
 	</div>
 </template>
 <script>
@@ -59,13 +38,44 @@
 		},
 		data () {
 			return {
-				mode: 'showcase'
+                mode: 'showcase',
+                filters: {
+                    rooms: null,
+                    square: {
+                        min: null,
+                        max: null
+                    }
+                }
 			}
 		},
-		methods: {},
+		methods: {
+            resetFilters () {
+                this.filters = {
+                    rooms: null,
+                    square: {
+                        min: null,
+                        max: null
+                    }
+                }
+            }    
+        },
 		computed: {
 			items () {
-				return this.$store.state.items
+                let items = this.$store.state.items
+
+                if (this.filters.rooms) {
+                    items = items.filter(item => item.rooms === this.filters.rooms)
+                }
+
+                if (this.filters.square.min) {
+                    items = items.filter(item => item.square >= this.filters.square.min)
+                }
+
+                if (this.filters.square.max) {
+                    items = items.filter(item => item.square <= this.filters.square.max)
+                }
+
+				return items
 			}
 		}
 	}

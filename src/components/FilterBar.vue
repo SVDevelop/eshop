@@ -15,10 +15,14 @@
 				<div class="filter__col rooms">
 					<div class="filter__label">Комнат:</div>
 					<div class="rooms__wrapper">
-						<input type="checkbox" id="rooms_1" class="rooms__checkbox"><label for="rooms_1" class="rooms__btn">1</label>
-						<input type="checkbox" id="rooms_2" class="rooms__checkbox"><label for="rooms_2" class="rooms__btn rooms__btn--active">2</label>
-						<input type="checkbox" id="rooms_3" class="rooms__checkbox"><label for="rooms_3" class="rooms__btn">3</label>
-						<input type="checkbox" id="rooms_4" class="rooms__checkbox"><label for="rooms_4" class="rooms__btn">4</label>
+						<input type="checkbox" id="rooms_1" class="rooms__checkbox">
+							<label for="rooms_1" class="rooms__btn" v-bind:class="{'rooms__btn--active': filters.rooms === 1}" v-on:click="updateFilter('rooms', 1)">1</label>
+						<input type="checkbox" id="rooms_2" class="rooms__checkbox">
+							<label for="rooms_2" class="rooms__btn" v-bind:class="{'rooms__btn--active': filters.rooms === 2}" v-on:click="updateFilter('rooms', 2)">2</label>
+						<input type="checkbox" id="rooms_3" class="rooms__checkbox">
+							<label for="rooms_3" class="rooms__btn" v-bind:class="{'rooms__btn--active': filters.rooms === 3}" v-on:click="updateFilter('rooms', 3)">3</label>
+						<input type="checkbox" id="rooms_4" class="rooms__checkbox">
+							<label for="rooms_4" class="rooms__btn" v-bind:class="{'rooms__btn--active': filters.rooms === 4}" v-on:click="updateFilter('rooms', 4)">4</label>
 					</div>
 				</div>
 				<div class="filter__col">
@@ -26,12 +30,12 @@
 					<div class="range__wrapper">
 						<div class="range">
 							<label for="" class="range__label">от</label>
-							<input type="number" class="range__input">
+							<input type="number" class="range__input" v-model="filters.square.min">
 							<div class="range__value">м2</div>
 						</div>
 						<div class="range">
 							<label for="" class="range__label">до</label>
-							<input type="number" class="range__input">
+							<input type="number" class="range__input" v-model="filters.square.max">
 							<div class="range__value">м2</div>
 						</div>
 					</div>
@@ -54,7 +58,7 @@
 			</div>
 			<div class="filter__buttons">
 				<button class="filter__show">Показать 119 объектов</button>
-				<button class="filter__reset">Сбросить фильтр</button>
+				<button class="filter__reset"  v-on:click="$emit('resetFilters')">Сбросить фильтр</button>
 			</div>
 		</div>
 
@@ -98,6 +102,13 @@
 
 <script>
     export default {
-        props: ['mode']
+		props: ['mode', 'filters'],
+		methods: {
+			updateFilter (param, value) {
+				const copy = JSON.parse(JSON.stringify(this.filters))
+				copy[param] = value
+				this.$emit('update:filters', copy)
+			}
+		}
     }
 </script>

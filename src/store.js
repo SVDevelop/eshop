@@ -13,7 +13,7 @@ const generate = () => Array.from({ length: 6 }, (item, index) => ({
     square: [50, 40, 120, 45, 23, 66][index],
     ppsm: 2304,
     seller: 'Застройщик',
-    favorite: false,
+    favorite: true,
 
     get price () {
       return this.squere + this.ppsm

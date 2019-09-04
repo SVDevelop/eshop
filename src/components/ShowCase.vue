@@ -17,7 +17,7 @@
 								</div>
 							</div>
 							<div class="card__img">
-								<img src="img/flat-plan.png" alt="План квартиры">
+								<img src="/img/flat-plan.png" alt="План квартиры">
 							</div>
 							<div class="card__desc">
 								<div class="card__price">
