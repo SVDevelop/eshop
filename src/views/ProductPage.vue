@@ -34,7 +34,7 @@
                     <div class="object__desc-name">
                         <div class="object__desc-title">Студия, 45,5 м2</div>
                         <div class="button-favourite">
-                            <i class="fas fa-heart" v-bind:class="{}"></i> В избранное
+                            <i class="fas fa-heart" v-bind:class="{'fa-heart--active': item.favorite}" v-on:click="$store.dispatch('likeHandler', item.id)"></i> В избранное
                         </div>
                     </div>
                     <div class="object__desc-details">
@@ -76,7 +76,6 @@
                 <!-- // object__desc -->
             </div>
             <!-- // object -->
-
         </div>
 
         <div class="container">
@@ -98,7 +97,8 @@
         </div>
 
         <div class="container">
-            <a href="#" class="back-to-results">← Вернуться к результатам поиска</a>
+            <!-- <a href="#" class="back-to-results">← Вернуться к результатам поиска</a> -->
+            <router-link class="back-to-results" :to="'/'">← Вернуться к результатам поиска</router-link>
         </div>
     </div>
 </template>

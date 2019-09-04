@@ -43,7 +43,8 @@
 				<div class="panel" v-for="item of items">
 					<div class="panel__artikul">ГЕН-112.4.2-56</div>
 					<div class="panel__name">
-						<a href="#">ЖК Генеральский</a>
+						<!-- <a href="#">ЖК Генеральский</a> -->
+						<router-link :to="`/product/${item.id}`">{{ item.rc.label }}</router-link>
 					</div>
 					<div class="panel__block">15</div>
 					<div class="panel__floor">4</div>

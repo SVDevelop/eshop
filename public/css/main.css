@@ -786,6 +786,9 @@ body {
 .button-favourite:hover i {
   color: #E51414;
 }
+.button-favourite i.fa-heart--active {
+  color: #E51414;
+}
 .button-order {
   display: block;
   height: 68px;

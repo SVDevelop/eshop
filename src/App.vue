@@ -18,7 +18,7 @@
 		
 		<div class="footer">
 			<div class="contaier">
-				<p>Учебный проект школы <a href="https://webcademy.ru/">WebCademy</a> с курса <a href="https://webcademy.ru/jscourse/">JavaScript разработка</a>. Проект выполнил <a href="#">Сергей Васильев</a>.</p>
+				<p>Учебный проект школы <a href="https://webcademy.ru/">WebCademy</a> с курса <a href="https://webcademy.ru/jscourse/">JavaScript разработка</a>. Проект выполнил <a href="#">Сергей Воронин</a>.</p>
 			</div>
 		</div>
 	</div>

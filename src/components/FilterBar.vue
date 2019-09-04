@@ -5,12 +5,15 @@
 			<div class="filter">
 				<div class="filter__col">
 					<div class="filter__label">Выбор проекта:</div>
-					<select name="" id="" class="filter__dropdown">
-						<option value="all">Все проекты</option>
+					<select name="" id="" class="filter__dropdown" v-model="selected">
+						<option v-for="option in options" v-bind:value="option.value">
+							{{ option.text }}
+						</option>
+						<!-- <option value="all">Все проекты</option>
 						<option value="generalskij">ЖК Генеральский</option>
 						<option value="petrovskij">ЖК Петровский</option>
-						<option value="centralnij">ЖК Центральный</option>
-					</select>
+						<option value="centralnij">ЖК Центральный</option> -->
+					</select>{{ selected }}
 				</div>
 				<div class="filter__col rooms">
 					<div class="filter__label">Комнат:</div>

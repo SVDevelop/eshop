@@ -32,8 +32,8 @@
 										<div class="params__value">{{ item.rooms }}</div>
 									</div>
 									<div class="params__item">
-										<div class="params__definition">{{ item.squere }}</div>
-										<div class="params__value">56</div>
+										<div class="params__definition">Площадь</div>
+										<div class="params__value">{{ item.square }}</div>
 									</div>
 								</div>
 								<!-- //card__params params -->
